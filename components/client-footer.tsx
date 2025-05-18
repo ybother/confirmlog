@@ -5,42 +5,51 @@ import { LockKeyhole, Code, Clock } from "lucide-react"
 import { useState, useEffect } from "react"
 
 export function ClientFooter() {
-  // Get the Vercel deployment commit hash from environment variables
-  const commitHash = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "development"
-
-  // Get the Git commit timestamp
-  const commitTimestamp = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_TIMESTAMP || ""
+  // State for server info
+  const [serverInfo, setServerInfo] = useState<{
+    serverStartTime: string
+    gitCommitSha: string
+    environment: string
+  } | null>(null)
 
   // State for formatted date
-  const [formattedDate, setFormattedDate] = useState<string>("development")
+  const [formattedDate, setFormattedDate] = useState<string>("loading...")
 
   // Format the commit hash to show only the first 7 characters (standard short hash format)
-  const shortCommitHash = commitHash === "development" ? "development" : commitHash.substring(0, 7)
+  const shortCommitHash = serverInfo?.gitCommitSha ? serverInfo.gitCommitSha.substring(0, 7) : "development"
 
-  // Format the deployment date
+  // Fetch server info
   useEffect(() => {
-    if (commitTimestamp && commitTimestamp !== "development") {
+    async function fetchServerInfo() {
       try {
-        // Convert ISO timestamp to Date object
-        const date = new Date(commitTimestamp)
+        const response = await fetch("/api/server-info")
+        if (!response.ok) {
+          throw new Error(`Server responded with status: ${response.status}`)
+        }
+        const data = await response.json()
+        setServerInfo(data)
 
-        // Format the date: "May 18, 2023 at 10:30 AM"
-        const formatted = date.toLocaleString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: true,
-        })
-
-        setFormattedDate(formatted)
+        // Format the server start time
+        if (data.serverStartTime) {
+          const date = new Date(data.serverStartTime)
+          const formatted = date.toLocaleString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          })
+          setFormattedDate(formatted)
+        }
       } catch (error) {
-        console.error("Error formatting deployment date:", error)
+        console.error("Error fetching server info:", error)
         setFormattedDate("unknown")
       }
     }
-  }, [commitTimestamp])
+
+    fetchServerInfo()
+  }, [])
 
   return (
     <footer className="border-t bg-gray-50">
@@ -122,7 +131,7 @@ export function ClientFooter() {
               <Code className="h-3 w-3" />
               <span>Commit:</span>
               <Link
-                href={`https://github.com/ybother/confirmlog/commit/${commitHash}`}
+                href={`https://github.com/ybother/confirmlog/commit/${serverInfo?.gitCommitSha || ""}`}
                 className="font-mono hover:text-gray-600 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
