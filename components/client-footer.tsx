@@ -1,14 +1,47 @@
 "use client"
 
 import Link from "next/link"
-import { LockKeyhole, Code } from "lucide-react"
+import { LockKeyhole, Code, Clock } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export function ClientFooter() {
   // Get the Vercel deployment commit hash from environment variables
   const commitHash = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "development"
 
+  // Get the deployment timestamp
+  const deployTimestamp = process.env.NEXT_PUBLIC_VERCEL_CREATED_AT || ""
+
+  // State for formatted date
+  const [formattedDate, setFormattedDate] = useState<string>("development")
+
   // Format the commit hash to show only the first 7 characters (standard short hash format)
   const shortCommitHash = commitHash === "development" ? "development" : commitHash.substring(0, 7)
+
+  // Format the deployment date
+  useEffect(() => {
+    if (deployTimestamp && deployTimestamp !== "development") {
+      try {
+        // Convert UNIX timestamp (seconds) to milliseconds
+        const timestamp = Number.parseInt(deployTimestamp) * 1000
+        const date = new Date(timestamp)
+
+        // Format the date: "May 18, 2023 at 10:30 AM"
+        const formatted = date.toLocaleString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        })
+
+        setFormattedDate(formatted)
+      } catch (error) {
+        console.error("Error formatting deployment date:", error)
+        setFormattedDate("unknown")
+      }
+    }
+  }, [deployTimestamp])
 
   return (
     <footer className="border-t bg-gray-50">
@@ -80,17 +113,25 @@ export function ClientFooter() {
           <p className="text-center text-xs text-gray-500">
             &copy; {new Date().getFullYear()} ConfirmLog. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 text-xs text-gray-400">
-            <Code className="h-3 w-3" />
-            <span>Commit:</span>
-            <Link
-              href={`https://github.com/ybother/confirmlog/commit/${commitHash}`}
-              className="font-mono hover:text-gray-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {shortCommitHash}
-            </Link>
+          <div className="flex flex-col md:flex-row items-center gap-2 text-xs text-gray-400">
+            <div className="flex items-center gap-1">
+              <Code className="h-3 w-3" />
+              <span>Commit:</span>
+              <Link
+                href={`https://github.com/ybother/confirmlog/commit/${commitHash}`}
+                className="font-mono hover:text-gray-600 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {shortCommitHash}
+              </Link>
+            </div>
+            <div className="hidden md:block">•</div>
+            <div className="flex items-center gap-1">
+              <Clock className="h-3 w-3" />
+              <span>Deployed:</span>
+              <span className="font-mono">{formattedDate}</span>
+            </div>
           </div>
         </div>
       </div>
