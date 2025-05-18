@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { LockKeyhole, Code } from "lucide-react"
 
-export function ClientFooter() {
+export function Footer() {
   // Get the Vercel deployment commit hash from environment variables
   const commitHash = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "development"
 

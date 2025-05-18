@@ -1,6 +1,6 @@
 import { neon } from "@neondatabase/serverless"
 
-// Create a SQL client with the database URL
+// Create a SQL client with the Neon database URL from environment variables
 export const sql = neon(process.env.DATABASE_URL!)
 
 // Update the SecureDrop interface to use camelCase consistently

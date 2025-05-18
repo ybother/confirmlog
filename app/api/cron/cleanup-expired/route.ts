@@ -33,6 +33,12 @@ export async function GET(request: Request) {
     })
   } catch (error) {
     console.error("Error in cleanup cron job:", error)
-    return NextResponse.json({ success: false, error: "Failed to clean up expired messages" }, { status: 500 })
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Failed to clean up expired messages",
+      },
+      { status: 500 },
+    )
   }
 }

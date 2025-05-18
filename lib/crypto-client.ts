@@ -105,7 +105,7 @@ export async function decryptMessage(encryptedData: string, password: string): P
   }
 }
 
-// Helper function to convert ArrayBuffer to base64
+// Helper function to convert ArrayBuffer to base64 string for storage and transmission
 function arrayBufferToBase64(buffer: ArrayBuffer): string {
   const bytes = new Uint8Array(buffer)
   let binary = ""
@@ -115,7 +115,7 @@ function arrayBufferToBase64(buffer: ArrayBuffer): string {
   return window.btoa(binary)
 }
 
-// Helper function to convert base64 to ArrayBuffer
+// Helper function to convert base64 string back to ArrayBuffer for decryption
 function base64ToArrayBuffer(base64: string): Uint8Array {
   const binaryString = window.atob(base64)
   const bytes = new Uint8Array(binaryString.length)
@@ -125,7 +125,7 @@ function base64ToArrayBuffer(base64: string): Uint8Array {
   return bytes
 }
 
-// Helper function to check if a string is valid base64
+// Helper function to validate if a string is in the expected encrypted format (base64 parts)
 export function isValidEncryptedFormat(str: string): boolean {
   try {
     const parts = str.split(":")

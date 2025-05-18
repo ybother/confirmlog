@@ -77,26 +77,36 @@ export default function DecryptForm({
     }
   }
 
-  // Format date in a prettier way
+  // Format date in a prettier way with error handling
   const formatDate = (date: string | Date | null) => {
     if (!date) return null
 
-    const d = new Date(date)
+    try {
+      const d = new Date(date)
 
-    // Format: "May 17, 2023 at 2:30 PM"
-    return (
-      d.toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      }) +
-      " at " +
-      d.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      })
-    )
+      // Check if date is valid
+      if (isNaN(d.getTime())) {
+        return "Invalid date"
+      }
+
+      // Format: "May 17, 2023 at 2:30 PM"
+      return (
+        d.toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }) +
+        " at " +
+        d.toLocaleTimeString("en-US", {
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        })
+      )
+    } catch (error) {
+      console.error("Error formatting date:", error)
+      return "Date error"
+    }
   }
 
   // Format location information

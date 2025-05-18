@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
-import { ClientFooter } from "@/components/client-footer"
+import { Footer } from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Header />
           <main className="flex-1 security-wallpaper">{children}</main>
-          <ClientFooter />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

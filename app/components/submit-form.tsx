@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useToast } from "@/hooks/use-toast"
 import { AlertCircle, Copy, Key, Share2 } from "lucide-react"
 import { encryptMessage } from "@/lib/crypto-client"
@@ -112,7 +112,7 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
       const endTime = performance.now()
       const responseTime = new Date().toISOString()
 
-      console.log(`\nResponse received (${Math.round(endTime - startTime)}ms)`)
+      console.log(`\nResponse received (${Math.round(endTime - startTime)}ms`)
       console.log("Response Time:", responseTime)
       console.log("Response Status: " + (response.success ? "Success" : "Error"))
       console.log("Response Data:", response)
@@ -261,8 +261,6 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
 
             <EncryptionIndicator />
           </CardContent>
-
-          <CardFooter></CardFooter>
         </form>
       ) : (
         <CardContent className="pt-0">
