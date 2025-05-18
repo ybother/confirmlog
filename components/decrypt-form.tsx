@@ -273,20 +273,6 @@ export default function DecryptForm({
     }
   }
 
-  // Format the access count message
-  const getAccessMessage = () => {
-    // Current view is already counted in the accessCount
-    const previousViews = Math.max(0, accessCount - 1)
-
-    if (previousViews === 0) {
-      return "This is the first time this message has been accessed."
-    } else if (previousViews === 1) {
-      return "This message has been accessed 1 time before."
-    } else {
-      return `This message has been accessed ${previousViews} times before.`
-    }
-  }
-
   return (
     <Card>
       <CardHeader>
@@ -379,7 +365,6 @@ export default function DecryptForm({
                 <Eye className="h-4 w-4 text-gray-400" />
                 <span>Access attempts: </span>
                 <span className="font-medium">{accessCount}</span>
-                <span className="text-xs text-amber-600 ml-1">({getAccessMessage()})</span>
               </div>
             </div>
           </div>
@@ -446,7 +431,6 @@ export default function DecryptForm({
                 <Eye className="h-4 w-4 text-gray-400" />
                 <span>Access attempts: </span>
                 <span className="font-medium">{accessCount}</span>
-                <span className="text-xs text-amber-600 ml-1">({getAccessMessage()})</span>
               </div>
             </div>
 
