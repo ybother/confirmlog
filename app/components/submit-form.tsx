@@ -255,14 +255,14 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
               )}
             </div>
 
-            <EncryptionIndicator />
-          </CardContent>
-
-          <CardFooter>
             <Button type="submit" className="w-full" disabled={isSubmitting || !!keyError}>
               {isSubmitting ? "Encrypting & Creating..." : "Create Secure Drop"}
             </Button>
-          </CardFooter>
+
+            <EncryptionIndicator />
+          </CardContent>
+
+          <CardFooter></CardFooter>
         </form>
       ) : (
         <CardContent className="pt-0">
