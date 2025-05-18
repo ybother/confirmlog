@@ -57,7 +57,7 @@ export function Footer() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="https://github.com"
+                    href="https://github.com/ybother/confirmlog"
                     className="text-gray-500 hover:text-gray-900"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -77,7 +77,7 @@ export function Footer() {
             <Code className="h-3 w-3" />
             <span>Commit:</span>
             <Link
-              href={`https://github.com/vercel/next.js/commit/${commitHash}`}
+              href={`https://github.com/ybother/confirmlog/commit/${commitHash}`}
               className="font-mono hover:text-gray-600 transition-colors"
               target="_blank"
               rel="noopener noreferrer"

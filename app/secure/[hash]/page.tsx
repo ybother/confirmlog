@@ -89,7 +89,7 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
 
       return (
         <div className="container flex flex-col items-center justify-center p-4 py-12 md:py-24">
-          <div className="w-full max-w-md">
+          <div className="w-full max-w-md bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-amber-600">
@@ -175,7 +175,7 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
 
   return (
     <div className="container flex flex-col items-center justify-center p-4 py-12 md:py-24">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm">
         <h1 className="text-3xl font-bold mb-2 text-center">Secure Message</h1>
         <p className="mb-8 text-center text-gray-600">Enter the decryption key to view this message</p>
 

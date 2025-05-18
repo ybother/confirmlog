@@ -21,11 +21,14 @@ export function Header() {
           <span className="text-xl font-bold">ConfirmLog</span>
         </Link>
         <nav className="flex items-center gap-4">
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/how-it-works">How It Works</Link>
+          </Button>
           <Button variant="ghost" size="sm" onClick={handleCreateClick}>
             Create
           </Button>
           <Button asChild variant="outline" size="sm">
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/ybother/confirmlog" target="_blank" rel="noopener noreferrer">
               GitHub
             </Link>
           </Button>

@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 security-wallpaper">{children}</main>
           <ClientFooter />
         </ThemeProvider>
       </body>

@@ -279,11 +279,11 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
                 <div className="space-y-4">
                   <div>
                     <p className="text-xs text-gray-500 mb-1">1. Send this secure link:</p>
-                    <div className="flex flex-col gap-2">
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm overflow-x-auto break-all">
+                    <div className="flex items-center gap-2">
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm flex-grow overflow-x-auto">
                         {result.secureUrl}
                       </code>
-                      <div className="flex gap-2">
+                      <div className="flex flex-col gap-1">
                         <Button
                           type="button"
                           variant="outline"

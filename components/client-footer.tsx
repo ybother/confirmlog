@@ -33,6 +33,11 @@ export function ClientFooter() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/how-it-works" className="text-gray-500 hover:text-gray-900">
+                    How It Works
+                  </Link>
+                </li>
+                <li>
                   <Link href="/faq" className="text-gray-500 hover:text-gray-900">
                     FAQ
                   </Link>
@@ -59,7 +64,7 @@ export function ClientFooter() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="https://github.com"
+                    href="https://github.com/ybother/confirmlog"
                     className="text-gray-500 hover:text-gray-900"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -79,7 +84,7 @@ export function ClientFooter() {
             <Code className="h-3 w-3" />
             <span>Commit:</span>
             <Link
-              href={`https://github.com/vercel/next.js/commit/${commitHash}`}
+              href={`https://github.com/ybother/confirmlog/commit/${commitHash}`}
               className="font-mono hover:text-gray-600 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
