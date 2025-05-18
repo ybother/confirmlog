@@ -5,7 +5,7 @@ export function HowItWorks() {
     <div className="w-full max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-sm">
       <h2 className="text-2xl font-bold mb-4 sm:mb-6 text-center">How It Works</h2>
 
-      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
         {/* Step 1 */}
         <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-lg bg-white/70">
           <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center mb-3 sm:mb-4">

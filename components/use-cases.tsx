@@ -1,4 +1,4 @@
-import { Key, Globe, Wallet, Briefcase, Shield, FileText, Clock, Gift } from "lucide-react"
+import { Key, Globe, Briefcase, FileText, Clock, Gift, Code } from "lucide-react"
 
 export function UseCases() {
   return (
@@ -38,21 +38,6 @@ export function UseCases() {
           </div>
         </div>
 
-        {/* Use Case 3 */}
-        <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
-          <div className="flex-shrink-0">
-            <div className="h-10 w-10 rounded-full bg-amber-100 flex items-center justify-center">
-              <Wallet className="h-5 w-5 text-amber-600" />
-            </div>
-          </div>
-          <div>
-            <h3 className="font-bold text-gray-800">Sharing Crypto Wallet Recovery Phrases</h3>
-            <p className="text-sm text-gray-600">
-              Deliver seed phrases or private keys securely — once only, with confirmation of access.
-            </p>
-          </div>
-        </div>
-
         {/* Use Case 4 */}
         <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
           <div className="flex-shrink-0">
@@ -68,7 +53,7 @@ export function UseCases() {
           </div>
         </div>
 
-        {/* NEW Use Case: Gift Card Codes */}
+        {/* Use Case: Gift Card Codes */}
         <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
           <div className="flex-shrink-0">
             <div className="h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center">
@@ -83,22 +68,22 @@ export function UseCases() {
           </div>
         </div>
 
-        {/* Use Case 5 */}
+        {/* NEW Use Case: Software License Keys */}
         <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
           <div className="flex-shrink-0">
-            <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center">
-              <Shield className="h-5 w-5 text-purple-600" />
+            <div className="h-10 w-10 rounded-full bg-cyan-100 flex items-center justify-center">
+              <Code className="h-5 w-5 text-cyan-600" />
             </div>
           </div>
           <div>
-            <h3 className="font-bold text-gray-800">2FA Backup Code Sharing</h3>
+            <h3 className="font-bold text-gray-800">Software License Keys</h3>
             <p className="text-sm text-gray-600">
-              Pass emergency 2FA codes to a trusted person without leaving them exposed or reusable.
+              Distribute premium software licenses to customers with verification of delivery and activation.
             </p>
           </div>
         </div>
 
-        {/* Use Case 6 */}
+        {/* Use Case: Document Unlock Codes */}
         <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
           <div className="flex-shrink-0">
             <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center">
@@ -113,8 +98,8 @@ export function UseCases() {
           </div>
         </div>
 
-        {/* Use Case 7 */}
-        <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100 md:col-span-2 md:max-w-md md:mx-auto">
+        {/* Use Case: Temporary Access */}
+        <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
           <div className="flex-shrink-0">
             <div className="h-10 w-10 rounded-full bg-teal-100 flex items-center justify-center">
               <Clock className="h-5 w-5 text-teal-600" />
