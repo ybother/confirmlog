@@ -1,38 +1,13 @@
 import Link from "next/link"
 import { LockKeyhole, Code, Clock } from "lucide-react"
+import { FORMATTED_BUILD_TIME } from "@/lib/build-constants"
 
 export function Footer() {
   // Get the Vercel deployment commit hash from environment variables
   const commitHash = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "development"
 
-  // Get the deployment timestamp
-  const deployTimestamp = process.env.NEXT_PUBLIC_VERCEL_CREATED_AT || ""
-
   // Format the commit hash to show only the first 7 characters (standard short hash format)
   const shortCommitHash = commitHash === "development" ? "development" : commitHash.substring(0, 7)
-
-  // Format the deployment date (server-side)
-  let formattedDate = "development"
-  if (deployTimestamp && deployTimestamp !== "development") {
-    try {
-      // Convert UNIX timestamp (seconds) to milliseconds
-      const timestamp = Number.parseInt(deployTimestamp) * 1000
-      const date = new Date(timestamp)
-
-      // Format the date: "May 18, 2023 at 10:30 AM"
-      formattedDate = date.toLocaleString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      })
-    } catch (error) {
-      console.error("Error formatting deployment date:", error)
-      formattedDate = "unknown"
-    }
-  }
 
   return (
     <footer className="border-t bg-gray-50">
@@ -120,8 +95,8 @@ export function Footer() {
             <div className="hidden md:block">•</div>
             <div className="flex items-center gap-1">
               <Clock className="h-3 w-3" />
-              <span>Deployed:</span>
-              <span className="font-mono">{formattedDate}</span>
+              <span>Built:</span>
+              <span className="font-mono">{FORMATTED_BUILD_TIME}</span>
             </div>
           </div>
         </div>
