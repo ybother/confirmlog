@@ -24,6 +24,9 @@ export function Header() {
           <Button asChild variant="ghost" size="sm">
             <Link href="/how-it-works">How It Works</Link>
           </Button>
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/use-cases">Use Cases</Link>
+          </Button>
           <Button variant="ghost" size="sm" onClick={handleCreateClick}>
             Create
           </Button>

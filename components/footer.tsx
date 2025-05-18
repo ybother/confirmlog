@@ -1,13 +1,37 @@
 import Link from "next/link"
 import { LockKeyhole, Code, Clock } from "lucide-react"
-import { FORMATTED_BUILD_TIME } from "@/lib/build-constants"
 
 export function Footer() {
   // Get the Vercel deployment commit hash from environment variables
   const commitHash = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || "development"
 
+  // Get the Git commit timestamp
+  const commitTimestamp = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_TIMESTAMP || ""
+
   // Format the commit hash to show only the first 7 characters (standard short hash format)
   const shortCommitHash = commitHash === "development" ? "development" : commitHash.substring(0, 7)
+
+  // Format the deployment date (server-side)
+  let formattedDate = "development"
+  if (commitTimestamp && commitTimestamp !== "development") {
+    try {
+      // Convert ISO timestamp to Date object
+      const date = new Date(commitTimestamp)
+
+      // Format the date: "May 18, 2023 at 10:30 AM"
+      formattedDate = date.toLocaleString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      })
+    } catch (error) {
+      console.error("Error formatting deployment date:", error)
+      formattedDate = "unknown"
+    }
+  }
 
   return (
     <footer className="border-t bg-gray-50">
@@ -34,6 +58,11 @@ export function Footer() {
                 <li>
                   <Link href="/how-it-works" className="text-gray-500 hover:text-gray-900">
                     How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/use-cases" className="text-gray-500 hover:text-gray-900">
+                    Use Cases
                   </Link>
                 </li>
                 <li>
@@ -95,8 +124,8 @@ export function Footer() {
             <div className="hidden md:block">•</div>
             <div className="flex items-center gap-1">
               <Clock className="h-3 w-3" />
-              <span>Built:</span>
-              <span className="font-mono">{FORMATTED_BUILD_TIME}</span>
+              <span>Deployed:</span>
+              <span className="font-mono">{formattedDate}</span>
             </div>
           </div>
         </div>
