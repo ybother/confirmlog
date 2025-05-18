@@ -38,21 +38,6 @@ export function UseCases() {
           </div>
         </div>
 
-        {/* Use Case 4 */}
-        <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
-          <div className="flex-shrink-0">
-            <div className="h-10 w-10 rounded-full bg-green-100 flex items-center justify-center">
-              <Briefcase className="h-5 w-5 text-green-600" />
-            </div>
-          </div>
-          <div>
-            <h3 className="font-bold text-gray-800">Client Handover for Agencies or Freelancers</h3>
-            <p className="text-sm text-gray-600">
-              After project completion, pass admin credentials or sensitive links and confirm delivery.
-            </p>
-          </div>
-        </div>
-
         {/* Use Case: Gift Card Codes */}
         <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
           <div className="flex-shrink-0">

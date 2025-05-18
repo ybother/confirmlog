@@ -295,10 +295,6 @@ export default function DecryptForm({
           Encrypted Message
         </CardTitle>
         <CardDescription>Enter the decryption key to view this message</CardDescription>
-        <div className="flex items-center gap-2 mt-2 text-xs text-amber-600">
-          <Eye className="h-4 w-4" />
-          <span>{getAccessMessage()}</span>
-        </div>
       </CardHeader>
 
       <CardContent>
@@ -377,6 +373,14 @@ export default function DecryptForm({
                   <span className="font-medium">{formatLocation()}</span>
                 </div>
               )}
+
+              {/* Access count */}
+              <div className="flex items-center gap-2 text-gray-600">
+                <Eye className="h-4 w-4 text-gray-400" />
+                <span>Access attempts: </span>
+                <span className="font-medium">{accessCount}</span>
+                <span className="text-xs text-amber-600 ml-1">({getAccessMessage()})</span>
+              </div>
             </div>
           </div>
         ) : (
@@ -436,6 +440,14 @@ export default function DecryptForm({
                   <span className="font-medium">{formatLocation()}</span>
                 </div>
               )}
+
+              {/* Access count */}
+              <div className="flex flex-wrap items-center gap-x-2 mb-1">
+                <Eye className="h-4 w-4 text-gray-400" />
+                <span>Access attempts: </span>
+                <span className="font-medium">{accessCount}</span>
+                <span className="text-xs text-amber-600 ml-1">({getAccessMessage()})</span>
+              </div>
             </div>
 
             <div className="flex flex-col gap-2 mt-4">
