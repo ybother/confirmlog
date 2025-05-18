@@ -2,16 +2,16 @@ import { LockKeyhole, Share2, Key, FileCheck } from "lucide-react"
 
 export function HowItWorks() {
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm">
-      <h2 className="text-2xl font-bold mb-6 text-center">How It Works</h2>
+    <div className="w-full max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-sm">
+      <h2 className="text-2xl font-bold mb-4 sm:mb-6 text-center">How It Works</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
         {/* Step 1 */}
-        <div className="flex flex-col items-center text-center p-4 rounded-lg bg-white/70">
-          <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
+        <div className="flex flex-col items-center text-center p-3 sm:p-4 rounded-lg bg-white/70">
+          <div className="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center mb-3 sm:mb-4">
             <LockKeyhole className="h-6 w-6 text-indigo-600" />
           </div>
-          <h3 className="font-bold mb-2">1. Encrypt the Secret</h3>
+          <h3 className="font-bold mb-1 sm:mb-2">1. Encrypt the Secret</h3>
           <p className="text-sm text-gray-600">
             You enter a secret and a decrypt key. It's encrypted in your browser — we never see it.
           </p>

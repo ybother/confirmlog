@@ -387,7 +387,7 @@ export default function DecryptForm({
             </div>
 
             <div className="relative p-4 bg-white border rounded-md whitespace-pre-wrap">
-              {decryptedContent}
+              <div className="pr-10 break-words">{decryptedContent}</div>
               <Button
                 onClick={() => copyToClipboard(decryptedContent)}
                 size="sm"
@@ -404,7 +404,7 @@ export default function DecryptForm({
               <h4 className="font-medium text-gray-700">Message Timeline</h4>
 
               {/* Created timestamp */}
-              <div className="flex items-center gap-2 text-gray-600">
+              <div className="flex flex-wrap items-center gap-x-2 mb-1">
                 <Calendar className="h-4 w-4 text-gray-400" />
                 <span>Created: </span>
                 <span className="font-medium">{formatDate(createdAt)}</span>
@@ -412,7 +412,7 @@ export default function DecryptForm({
 
               {/* Decrypted timestamp (if available) */}
               {decryptedAt && (
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex flex-wrap items-center gap-x-2 mb-1">
                   <LockOpen className="h-4 w-4 text-gray-400" />
                   <span>Decrypted: </span>
                   <span className="font-medium">{formatDate(decryptedAt)}</span>
@@ -421,7 +421,7 @@ export default function DecryptForm({
 
               {/* Expiry timestamp (if available) */}
               {expiresAt && (
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex flex-wrap items-center gap-x-2 mb-1">
                   <Clock className="h-4 w-4 text-gray-400" />
                   <span>Expires: </span>
                   <span className="font-medium">{formatDate(expiresAt)}</span>
@@ -430,9 +430,9 @@ export default function DecryptForm({
 
               {/* Access location (if available) */}
               {accessIp && (
-                <div className="flex items-center gap-2 text-gray-600">
-                  <Globe className="h-4 w-4 text-gray-400" />
-                  <span>Accessed from: </span>
+                <div className="flex flex-wrap items-start gap-x-2">
+                  <Globe className="h-4 w-4 text-gray-400 mt-1" />
+                  <span className="mt-0.5">Accessed from: </span>
                   <span className="font-medium">{formatLocation()}</span>
                 </div>
               )}

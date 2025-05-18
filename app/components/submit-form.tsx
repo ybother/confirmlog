@@ -277,17 +277,17 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
                 <div className="space-y-4">
                   <div>
                     <p className="text-xs text-gray-500 mb-1">1. Send this secure link:</p>
-                    <div className="flex items-center gap-2">
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm flex-grow overflow-x-auto">
+                    <div className="flex flex-col sm:flex-row items-start gap-2">
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm w-full overflow-x-auto">
                         {result.secureUrl}
                       </code>
-                      <div className="flex flex-col gap-1">
+                      <div className="flex flex-row sm:flex-col gap-1 w-full sm:w-auto mt-2 sm:mt-0">
                         <Button
                           type="button"
                           variant="outline"
                           size="sm"
                           onClick={() => copyToClipboard(result.secureUrl!, "Secure link copied to clipboard")}
-                          className="flex-shrink-0 h-8"
+                          className="flex-1 sm:flex-initial h-8"
                         >
                           <Copy className="h-4 w-4 mr-1" />
                           Copy
@@ -297,7 +297,7 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
                           variant="outline"
                           size="sm"
                           onClick={() => window.open(result.secureUrl!, "_blank")}
-                          className="flex-shrink-0 h-8"
+                          className="flex-1 sm:flex-initial h-8"
                         >
                           <Share2 className="h-4 w-4 mr-1" />
                           Open
@@ -308,8 +308,8 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
 
                   <div>
                     <p className="text-xs text-gray-500 mb-1">2. Share this decryption key separately:</p>
-                    <div className="flex items-center gap-2">
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm flex-grow overflow-x-auto">
+                    <div className="flex flex-col sm:flex-row items-start gap-2">
+                      <code className="bg-gray-100 px-2 py-1 rounded text-sm w-full overflow-x-auto">
                         {decryptionKey}
                       </code>
                       <Button
@@ -317,7 +317,7 @@ export default function SubmitForm({ createSecureDropAction }: SubmitFormProps) 
                         variant="outline"
                         size="sm"
                         onClick={() => copyToClipboard(decryptionKey, "Decryption key copied to clipboard")}
-                        className="flex-shrink-0 h-8"
+                        className="w-full sm:w-auto mt-2 sm:mt-0 h-8"
                       >
                         <Copy className="h-4 w-4 mr-1" />
                         Copy

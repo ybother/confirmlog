@@ -3,11 +3,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export function FAQ() {
   return (
     <div className="w-full max-w-3xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+      <h2 className="text-2xl font-bold mb-4 sm:mb-6 text-center">Frequently Asked Questions</h2>
 
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="encryption-method">
-          <AccordionTrigger>What encryption method is used?</AccordionTrigger>
+          <AccordionTrigger className="text-left">What encryption method is used?</AccordionTrigger>
           <AccordionContent className="text-gray-700 space-y-2">
             <p>
               We use the Web Crypto API with AES-GCM (Advanced Encryption Standard in Galois/Counter Mode) for
@@ -17,8 +17,8 @@ export function FAQ() {
 
             <p className="font-medium mt-2">Technical implementation:</p>
 
-            <ul className="list-disc pl-5 space-y-1">
-              <li>
+            <ul className="list-disc pl-4 sm:pl-5 space-y-1">
+              <li className="break-words">
                 <span className="font-mono text-sm">PBKDF2</span> (Password-Based Key Derivation Function 2) is used to
                 derive a cryptographic key from your decryption key with 100,000 iterations and SHA-256 hashing
               </li>

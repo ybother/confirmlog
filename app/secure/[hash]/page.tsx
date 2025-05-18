@@ -98,8 +98,8 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
       }
 
       return (
-        <div className="container flex flex-col items-center justify-center p-4 py-12 md:py-24">
-          <div className="w-full max-w-md bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm">
+        <div className="container flex flex-col items-center justify-center p-4 py-8 md:py-12">
+          <div className="w-full max-w-md bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-sm">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-amber-600">
@@ -108,7 +108,7 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="p-4 bg-amber-50 rounded-md text-amber-800">
+                <div className="p-3 sm:p-4 bg-amber-50 rounded-md text-amber-800">
                   <p className="font-medium">
                     {isExpired
                       ? "This secure message has expired."
@@ -125,7 +125,7 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
                   <h4 className="font-medium text-gray-700">Message Timeline</h4>
 
                   {/* Created timestamp */}
-                  <div className="flex items-center gap-2 text-gray-600">
+                  <div className="flex flex-wrap items-center gap-x-2 mb-1">
                     <Calendar className="h-4 w-4 text-gray-400" />
                     <span>Created: </span>
                     <span className="font-medium">{formatDate(record.created_at)}</span>
@@ -133,7 +133,7 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
 
                   {/* Decrypted timestamp (if available) */}
                   {record.decrypted_at && (
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex flex-wrap items-center gap-x-2 mb-1 text-gray-600">
                       <LockOpen className="h-4 w-4 text-gray-400" />
                       <span>Decrypted: </span>
                       <span className="font-medium">{formatDate(record.decrypted_at)}</span>
@@ -142,7 +142,7 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
 
                   {/* Expiry timestamp (if available) */}
                   {record.expires_at && (
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex flex-wrap items-center gap-x-2 mb-1 text-gray-600">
                       <Clock className="h-4 w-4 text-gray-400" />
                       <span>Expires: </span>
                       <span className="font-medium">{formatDate(record.expires_at)}</span>
@@ -151,7 +151,7 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
 
                   {/* Access location (if available) */}
                   {record.access_ip && (
-                    <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex flex-wrap items-center gap-x-2 mb-1 text-gray-600">
                       <Globe className="h-4 w-4 text-gray-400" />
                       <span>Accessed from: </span>
                       <span className="font-medium">{formatLocation()}</span>
@@ -184,10 +184,10 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
   const secureDrop = result.data
 
   return (
-    <div className="container flex flex-col items-center justify-center p-4 py-12 md:py-24">
-      <div className="w-full max-w-md bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-sm">
-        <h1 className="text-3xl font-bold mb-2 text-center">Secure Message</h1>
-        <p className="mb-8 text-center text-gray-600">Enter the decryption key to view this message</p>
+    <div className="container flex flex-col items-center justify-center p-4 py-8 md:py-12">
+      <div className="w-full max-w-md bg-white/80 backdrop-blur-sm p-4 sm:p-6 rounded-lg shadow-sm">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2 text-center">Secure Message</h1>
+        <p className="mb-6 sm:mb-8 text-center text-gray-600">Enter the decryption key to view this message</p>
 
         <DecryptForm
           encryptedText={secureDrop.encrypted_text}

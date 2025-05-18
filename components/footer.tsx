@@ -82,7 +82,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-2">
-          <p className="text-center text-xs text-gray-500">
+          <p className="text-center text-xs text-gray-500 mb-2 md:mb-0">
             &copy; {new Date().getFullYear()} ConfirmLog. All rights reserved.
           </p>
           <div className="flex items-center gap-1 text-xs text-gray-400">
@@ -90,9 +90,10 @@ export function Footer() {
             <span>Commit:</span>
             <Link
               href={`https://github.com/ybother/confirmlog/commit/${commitHash}`}
-              className="font-mono hover:text-gray-600 transition-colors"
+              className="font-mono hover:text-gray-600 transition-colors max-w-[120px] truncate"
               target="_blank"
               rel="noopener noreferrer"
+              title={commitHash}
             >
               {shortCommitHash}
             </Link>
