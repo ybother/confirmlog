@@ -2,7 +2,7 @@ import { getSecureDropByHash } from "@/lib/db"
 import { notFound } from "next/navigation"
 import DecryptForm from "@/components/decrypt-form"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertTriangle, Calendar, Clock, Globe, LockOpen, Plus } from "lucide-react"
+import { AlertTriangle, Calendar, Clock, Globe, LockOpen, Plus, Eye } from "lucide-react"
 import { sql } from "@/lib/db"
 import { headers } from "next/headers"
 import { Button } from "@/components/ui/button"
@@ -159,7 +159,8 @@ export default async function SecureMessagePage({ params }: { params: { hash: st
                   )}
 
                   {/* Access count */}
-                  <div className="mt-2 text-gray-600">
+                  <div className="mt-2 text-gray-600 flex items-center gap-2">
+                    <Eye className="h-4 w-4 text-gray-400" />
                     <p>Total access attempts: {record.access_count || 0}</p>
                   </div>
                 </div>
