@@ -1,4 +1,4 @@
-import { Key, Globe, Wallet, Briefcase, Shield, FileText, Clock } from "lucide-react"
+import { Key, Globe, Wallet, Briefcase, Shield, FileText, Clock, Gift } from "lucide-react"
 
 export function UseCases() {
   return (
@@ -64,6 +64,21 @@ export function UseCases() {
             <h3 className="font-bold text-gray-800">Client Handover for Agencies or Freelancers</h3>
             <p className="text-sm text-gray-600">
               After project completion, pass admin credentials or sensitive links and confirm delivery.
+            </p>
+          </div>
+        </div>
+
+        {/* NEW Use Case: Gift Card Codes */}
+        <div className="flex gap-4 p-4 rounded-lg bg-white/70 border border-gray-100">
+          <div className="flex-shrink-0">
+            <div className="h-10 w-10 rounded-full bg-pink-100 flex items-center justify-center">
+              <Gift className="h-5 w-5 text-pink-600" />
+            </div>
+          </div>
+          <div>
+            <h3 className="font-bold text-gray-800">Sending Gift Card Codes</h3>
+            <p className="text-sm text-gray-600">
+              Share digital gift card codes securely with recipients and get confirmation when they've been claimed.
             </p>
           </div>
         </div>
